@@ -4,3 +4,6 @@
 [submodule "third_party/sleepy-discord"]
 	path = third_party/sleepy-discord
 	url = https://github.com/yourWaifu/sleepy-discord
+[submodule "third_party/toml11"]
+	path = third_party/toml11
+	url = https://github.com/ToruNiina/toml11

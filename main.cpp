@@ -1,6 +1,10 @@
+#include <toml.hpp>
 #include "bot.h"
 
 int main() {
-    ColorBot client("NjMyMzIyMDQ1Nzk0ODQ0NzAy.XaDt1A.8yV5xT1hKpXLBdkRd7Knr0EnCus", 2);
+    const auto data  = toml::parse("config.toml");
+    const auto token = toml::find<std::string>(data, "token");
+
+    ColorBot client(token, 2);
     client.run();
 }
