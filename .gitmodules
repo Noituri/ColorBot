@@ -1,0 +1,6 @@
+[submodule "third_party/lodepng"]
+	path = third_party/lodepng
+	url = https://github.com/lvandeve/lodepng
+[submodule "third_party/sleepy-discord"]
+	path = third_party/sleepy-discord
+	url = https://github.com/yourWaifu/sleepy-discord

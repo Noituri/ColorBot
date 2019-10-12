@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/lodepng" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/sleepy-discord" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/sleepy-discord/deps/asio" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/sleepy-discord/deps/cpr" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/sleepy-discord/deps/cpr/opt/curl" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/sleepy-discord/deps/cpr/opt/googletest" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/sleepy-discord/deps/cpr/opt/mongoose" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/sleepy-discord/deps/websocketpp" vcs="Git" />
+  </component>
+</project>

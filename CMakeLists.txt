@@ -1,0 +1,9 @@
+cmake_minimum_required(VERSION 3.15)
+project(ColorBot)
+
+set(CMAKE_CXX_STANDARD 17)
+
+include_directories(ColorBot PRIVATE third_party/lodepng)
+add_executable(ColorBot main.cpp third_party/lodepng/lodepng.cpp bot.cpp bot.h utils.cpp utils.h rgb.cpp rgb.h)
+add_subdirectory(third_party/sleepy-discord)
+target_link_libraries(ColorBot sleepy-discord)
