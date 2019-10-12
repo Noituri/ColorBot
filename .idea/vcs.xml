@@ -10,5 +10,6 @@
     <mapping directory="$PROJECT_DIR$/third_party/sleepy-discord/deps/cpr/opt/googletest" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/third_party/sleepy-discord/deps/cpr/opt/mongoose" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/third_party/sleepy-discord/deps/websocketpp" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/third_party/toml11" vcs="Git" />
   </component>
 </project>
