@@ -21,13 +21,10 @@ bool utils::generate_image(const std::string& color) {
     rgb rgb_color(color);
 
     for(int i = 0; i < 16; i++) {
-        unsigned char r = rgb_color.r;
-        unsigned char g = rgb_color.g;
-        unsigned char b = rgb_color.b;
         unsigned char a = 255;
 
-        lodepng_palette_add(&state.info_png.color, r, g, b, a);
-        lodepng_palette_add(&state.info_raw, r, g, b, a);
+        lodepng_palette_add(&state.info_png.color, rgb_color.r, rgb_color.g, rgb_color.b, a);
+        lodepng_palette_add(&state.info_raw, rgb_color.r, rgb_color.g, rgb_color.b, a);
     }
 
     state.info_png.color.colortype = LCT_PALETTE;
