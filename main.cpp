@@ -6,5 +6,5 @@ int main() {
     const auto token = toml::find<std::string>(data, "token");
 
     ColorBot client(token, 2);
-    client.run();
+    client.start();
 }

@@ -3,43 +3,37 @@
 //
 
 #include "bot.h"
+
+#include <memory>
 #include "utils.h"
-#define EMBED_COLOR 16757299
+#include "commands/hextoimage.h"
+#include "commands/about.h"
+#include "commands/help.h"
+
+void ColorBot::start() {
+    commands.push_back(std::make_unique<about>());
+    commands.push_back(std::make_unique<hextoimage>());
+
+    std::string help_message;
+    for (auto const& cmd : commands) {
+        if (cmd->get_desc().empty())
+            continue;
+        help_message += "**" + cmd->get_name() + "** - " + cmd->get_desc() + "\n";
+    }
+
+    commands.push_back(std::make_unique<help>());
+
+    this->run();
+}
 
 void ColorBot::onMessage(SleepyDiscord::Message message) {
     if (message.author.bot)
         return;
 
-    if (message.content == "#help") {
-        SleepyDiscord::Embed embed;
-        embed.title = "Help";
-        embed.color = EMBED_COLOR;
-        embed.description = "**How to use:**\n"
-                            "Just type hex color in the chat, "
-                            "bot will do the rest *(remember to put '#' before hex)*\n\n"
-                            "**Example:**\n"
-                            "```#FF00FF```\n"
-                            "**Commands:**\n"
-                            "**#help** - shows this message.\n"
-                            "**#about** - information about this bot.";
-        sendMessage(message.channelID, "", embed);
-    } else if (message.content == "#about") {
-        SleepyDiscord::Embed embed;
-        embed.title = "About";
-        embed.color = EMBED_COLOR;
-        embed.description = "**Created by:**\n"
-                            "Mikołaj '[Noituri](https://github.com/noituri)' Radkowski\n\n"
-                            "**Source code:**\n"
-                            "Link -> [click](https://github.com/noituri/ColorBot)\n"
-                            "Discord Library -> [sleepy-discord](https://github.com/yourWaifu/sleepy-discord)\n\n"
-                            "**Version:**\n"
-                            "0.1 alpha";
-        sendMessage(message.channelID, "", embed);
-    } else if (message.startsWith("#")) {
-        if (message.length() != 7)
-            return;
-        sendTyping(message.channelID);
-        printf("Uploading image for %s color.\n", message.content.c_str());
-        uploadFile(message.channelID, utils::get_image(message.content),"");
+    for (auto const& cmd : commands) {
+        if (message.startsWith(cmd->get_name())) {
+            cmd->execute_cmd(this, message);
+            break;
+        }
     }
 }
