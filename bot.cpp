@@ -33,7 +33,6 @@ void ColorBot::onMessage(SleepyDiscord::Message message) {
         return;
 
     for (auto const& cmd : commands) {
-		std::cout << cmd->get_name() << std::endl;
         if (message.startsWith(cmd->get_name())) {
             cmd->execute_cmd(this, message);
             break;
