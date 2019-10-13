@@ -13,7 +13,7 @@
 
 class command {
 public:
-	void send_error(SleepyDiscord::DiscordClient* session, std::string message, std::string channel_id);
+	virtual void send_error(SleepyDiscord::DiscordClient* session, std::string message, std::string channel_id);
 	virtual std::string get_name() = 0;
     virtual std::string get_desc() = 0;
     virtual void execute_cmd(SleepyDiscord::DiscordClient* session, SleepyDiscord::Message message) = 0;
