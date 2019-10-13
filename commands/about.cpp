@@ -22,6 +22,6 @@ void about::execute_cmd(SleepyDiscord::DiscordClient* session, SleepyDiscord::Me
                         "Link -> [click](https://github.com/noituri/ColorBot)\n"
                         "Discord Library -> [sleepy-discord](https://github.com/yourWaifu/sleepy-discord)\n\n"
                         "**Version:**\n"
-                        "0.0.1 alpha";
+                        "0.0.2 alpha";
     session->sendMessage(message.channelID, "", embed);
 }
