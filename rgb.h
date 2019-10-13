@@ -10,7 +10,6 @@
 class rgb {
 private:
     unsigned char convert_hex_to_dec(std::string hex);
-	std::string rgb::get_hex_from_char(unsigned char hex);
 public:
     unsigned char r = 0;
     unsigned char g = 0;

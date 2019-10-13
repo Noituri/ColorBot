@@ -39,12 +39,7 @@ rgb::rgb(const std::string& hex) {
 rgb::rgb(unsigned char r, unsigned char g, unsigned char b) : r(r), g(g), b(b) {}
 
 std::string rgb::get_hex() {
-	std::string hex;
-	char rgb_hex[16];
-	std::cout << (int)r << std::endl;
-	std::cout << (int)g << std::endl;
-	std::cout << (int)b << std::endl;
-	snprintf(rgb_hex, sizeof rgb_hex, "%02X%02X%02X", r, g, b);
-	hex = rgb_hex;
+	char hex[16];
+	snprintf(hex, sizeof hex, "%02X%02X%02X", r, g, b);
 	return hex;
 }
