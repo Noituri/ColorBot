@@ -9,9 +9,11 @@
 #include "commands/hextoimage.h"
 #include "commands/about.h"
 #include "commands/help.h"
+#include "commands/color.h"
 
 void ColorBot::start() {
 	// put every new command here
+	commands.push_back(std::make_unique<color>());
     commands.push_back(std::make_unique<about>());
 
     std::string help_message;

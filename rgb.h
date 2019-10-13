@@ -9,13 +9,16 @@
 
 class rgb {
 private:
-    static unsigned char convert_hex_to_dec(std::string hex);
+    unsigned char convert_hex_to_dec(std::string hex);
+	std::string rgb::get_hex_from_char(unsigned char hex);
 public:
     unsigned char r = 0;
     unsigned char g = 0;
     unsigned char b = 0;
     rgb(const std::string& hex);
+	rgb(int dec);
     rgb(unsigned char r, unsigned char g, unsigned char b);
+	std::string get_hex();
 };
 
 
