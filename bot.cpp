@@ -11,8 +11,8 @@
 #include "commands/help.h"
 
 void ColorBot::start() {
+	// put every new command here
     commands.push_back(std::make_unique<about>());
-    commands.push_back(std::make_unique<hextoimage>());
 
     std::string help_message;
     for (auto const& cmd : commands) {
@@ -21,7 +21,9 @@ void ColorBot::start() {
         help_message += "**" + cmd->get_name() + "** - " + cmd->get_desc() + "\n";
     }
 
-    commands.push_back(std::make_unique<help>());
+    commands.push_back(std::make_unique<help>(help_message));
+	commands.push_back(std::make_unique<hextoimage>());
+
 
     this->run();
 }
@@ -31,6 +33,7 @@ void ColorBot::onMessage(SleepyDiscord::Message message) {
         return;
 
     for (auto const& cmd : commands) {
+		std::cout << cmd->get_name() << std::endl;
         if (message.startsWith(cmd->get_name())) {
             cmd->execute_cmd(this, message);
             break;

@@ -12,7 +12,7 @@ std::string about::get_desc() {
     return "information about this bot.";
 }
 
-void about::execute_cmd(SleepyDiscord::DiscordClient *session, SleepyDiscord::Message message) {
+void about::execute_cmd(SleepyDiscord::DiscordClient* session, SleepyDiscord::Message message) {
     SleepyDiscord::Embed embed;
     embed.title = "About";
     embed.color = EMBED_COLOR;
